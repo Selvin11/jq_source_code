@@ -1,3 +1,32 @@
+> extend(boolean,dest,src1,src2,src3...)
+
+    第一个参数boolean代表是否进行深度拷贝
+
+ ```javascript
+    //深拷贝
+    var result=$.extend( true,  {},  
+        { name: "John", location: {city: "Boston",county:"USA"} },  
+        { last: "Resig", location: {state: "MA",county:"China"} } ); 
+
+    result={
+        name:"John",
+        last:"Resig",
+        location:{city:"Boston",state:"MA",county:"China"}
+    };
+
+    //浅拷贝
+    var result=$.extend( false, {},  
+        { name: "John", location:{city: "Boston",county:"USA"} },  
+        { last: "Resig", location: {state: "MA",county:"China"} } ); 
+
+    result={
+        name:"John",
+        last:"Resig",
+        location:{state:"MA",county:"China"}
+    };
+
+ ```
+
 ```javascript
     jQuery.extend = jQuery.fn.extend = function() {
         var src, copyIsArray, copy, name, options, clone,
